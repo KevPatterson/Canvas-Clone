@@ -1,5 +1,5 @@
 import {  LayoutTemplate, TemplatesList, ShapesIcon, Elements, Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon, Type, Sparkle, Component, Settings } from "lucide-react";
-//import { AddImageSetting, TextSettings, AiTransformSetting, BackrgoundSetting, Settings } from "./Settings";
+import BackgroundSetting from "./Components/BackgroundSetting";
 
 export const WorkspaceMenu = [
     {
@@ -97,43 +97,43 @@ export const canvasSizeOptions = [
 export const sideBarMenu = [
     {
         name: 'Templates',
-        //desc: 'Select Prebuild Template',
+        desc: 'Seleccionar plantilla preconstruida',
         icon: LayoutTemplate,
         //component: <TemplatesList />
     },
     {
         name: 'Elements',
-        //desc: 'Select Shapes and Stickers',
+        desc: 'Seleccionar formas y pegatinas',
         icon: ShapesIcon,
         //component: <Elements />
     },
     {
         name: 'Images',
-        //desc: 'Add Image or Upload your own',
+        desc: 'Agregar imagen o subir la tuya',
         icon: Image,
         //component: <AddImageSetting />
     },
     {
         name: 'Text',
-        //desc: 'Add Text and Heading',
+        desc: 'Agregar texto y encabezado',
         icon: Type,
         //component: <TextSettings />
     },
     {
         name: 'AI',
-        //desc: 'More AI Feature to enhance your design',
+        desc: 'Mas caracteristicas de IA para mejorar tu diseño',
         icon: Sparkle,
         //component: <AiTransformSetting />
     },
     {
         name: 'Background',
-        //desc: 'Change Canvas Background',
+        desc: 'Cambiar el fondo del lienzo',
         icon: Component,
-        //component: <BackrgoundSetting />
+        component: <BackgroundSetting />
     },
     {
         name: 'Settings',
-        desc: 'Update Canvas Size and background',
+        desc: 'Actualizar tamaño del lienzo y el fondo',
         icon: Settings
     }
 ]

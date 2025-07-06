@@ -7,6 +7,9 @@ function SideBarSettings({selectedOption}) {
         {selectedOption?.name}
         </h2>
         <p className='text-sm text-gray-500'>{selectedOption?.desc}</p>
+        <div className='mt-7'>
+        {selectedOption?.component}
+        </div>
     </div>
   )
 }

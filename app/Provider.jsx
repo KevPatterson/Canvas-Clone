@@ -4,6 +4,7 @@ import { useMutation } from 'convex/react'
 import { api } from '../convex/_generated/api'
 import { useUser } from '@stackframe/stack'
 import { UserDetailContext } from '../context/UserDatailContext'
+import { Loader2Icon } from 'lucide-react'
 
 function Provider({children}) {
 
@@ -28,7 +29,11 @@ function Provider({children}) {
         setUserDetail(result);
     }
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={
+            <div className="flex items-center justify-center min-h-screen">
+                <Loader2Icon className="w-8 h-8 animate-spin" />
+            </div>
+        }>
             <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
                 {children}
             </UserDetailContext.Provider>
