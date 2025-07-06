@@ -6,11 +6,13 @@ import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
 import { UserDetailContext } from '@/context/UserDatailContext'
+import { useRouter } from 'next/navigation'
 
 function IntroOptions() {
 
     const createDesignRecord=useMutation(api.designs.CreateNewDesign);
     const {userDetail}=useContext(UserDetailContext);
+    const router=useRouter();
 
     /**
      * Usado para crear un nuevo diseño en la base de datos
@@ -27,6 +29,7 @@ function IntroOptions() {
         console.log(result);
 
         //Navegar a la pagina de diseño
+        router.push('/design/' + result);
     }
 
     return (

@@ -1,4 +1,5 @@
-import { Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon } from "lucide-react";
+import {  LayoutTemplate, TemplatesList, ShapesIcon, Elements, Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon, Type, Sparkle, Component, Settings } from "lucide-react";
+//import { AddImageSetting, TextSettings, AiTransformSetting, BackrgoundSetting, Settings } from "./Settings";
 
 export const WorkspaceMenu = [
     {
@@ -93,43 +94,42 @@ export const canvasSizeOptions = [
     },
 ];
 
-/*
 export const sideBarMenu = [
     {
         name: 'Templates',
-        desc: 'Select Prebuild Template',
+        //desc: 'Select Prebuild Template',
         icon: LayoutTemplate,
-        component: <TemplatesList />
+        //component: <TemplatesList />
     },
     {
         name: 'Elements',
-        desc: 'Select Shapes and Stickers',
+        //desc: 'Select Shapes and Stickers',
         icon: ShapesIcon,
-        component: <Elements />
+        //component: <Elements />
     },
     {
         name: 'Images',
-        desc: 'Add Image or Upload your own',
+        //desc: 'Add Image or Upload your own',
         icon: Image,
-        component: <AddImageSetting />
+        //component: <AddImageSetting />
     },
     {
         name: 'Text',
-        desc: 'Add Text and Heading',
+        //desc: 'Add Text and Heading',
         icon: Type,
-        component: <TextSettings />
+        //component: <TextSettings />
     },
     {
         name: 'AI',
-        desc: 'More AI Feature to enhance your design',
+        //desc: 'More AI Feature to enhance your design',
         icon: Sparkle,
-        component: <AiTransformSetting />
+        //component: <AiTransformSetting />
     },
     {
         name: 'Background',
-        desc: 'Change Canvas Background',
+        //desc: 'Change Canvas Background',
         icon: Component,
-        component: <BackrgoundSetting />
+        //component: <BackrgoundSetting />
     },
     {
         name: 'Settings',
@@ -138,6 +138,7 @@ export const sideBarMenu = [
     }
 ]
 
+/*
 export const ShapeList = [
     {
         name: 'Circle',

@@ -8,6 +8,7 @@ import { toast } from 'sonner'
 import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import { Loader2Icon } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 function CustomCanvasDialog({children}) {
 
@@ -17,6 +18,7 @@ function CustomCanvasDialog({children}) {
     const {userDetail}=useContext(UserDetailContext);
     const createDesignRecord=useMutation(api.designs.CreateNewDesign);
     const [loading,setLoading]=useState(false);
+    const router=useRouter();
     
     /**
      * Usado para crear un nuevo diseño en la base de datos
@@ -34,6 +36,7 @@ function CustomCanvasDialog({children}) {
         console.log(result);
         setLoading(false);
         //Navegar a la pagina de diseño
+        router.push('/design/' + result);
     }
 
     return (
