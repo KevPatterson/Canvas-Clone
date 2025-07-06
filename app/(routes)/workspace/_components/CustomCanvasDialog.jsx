@@ -7,7 +7,7 @@ import { useState,useContext } from 'react'
 import { toast } from 'sonner'
 import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
-import { Loader2Icon } from 'lucide-react'
+import { Spinner } from '@/components/ui/spinner'
 import { useRouter } from 'next/navigation'
 
 function CustomCanvasDialog({children}) {
@@ -67,7 +67,7 @@ function CustomCanvasDialog({children}) {
                     <Button className='w-full' 
                         disabled={loading || !name || !width || !height}
                         onClick={onCreate}>
-                        {loading ? <Loader2Icon className='w-4 h-4 animate-spin' /> : 'Crear'}
+                        {loading ? <Spinner className='w-4 h-4' /> : 'Crear'}
                     </Button>
                     </div>
                 </div>

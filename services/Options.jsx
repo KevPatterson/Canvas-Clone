@@ -1,5 +1,6 @@
 import {  LayoutTemplate, TemplatesList, ShapesIcon, Elements, Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon, Type, Sparkle, Component, Settings } from "lucide-react";
 import BackgroundSetting from "./Components/BackgroundSetting";
+import AddImageSetting from "./Components/AddImageSetting";
 
 export const WorkspaceMenu = [
     {
@@ -111,7 +112,7 @@ export const sideBarMenu = [
         name: 'Images',
         desc: 'Agregar imagen o subir la tuya',
         icon: Image,
-        //component: <AddImageSetting />
+        component: <AddImageSetting />
     },
     {
         name: 'Text',
