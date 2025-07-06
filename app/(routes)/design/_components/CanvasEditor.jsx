@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Canvas } from 'fabric'
 import { useCanvasHook } from '../[designId]/page'
+import TopNavBar from '@/services/Components/TopNavBar'
 
 function CanvasEditor({DesignInfo}) {
   const canvasRef=useRef();
@@ -18,6 +19,7 @@ function CanvasEditor({DesignInfo}) {
           width: DesignInfo?.width / 1.2,
           height: DesignInfo?.height / 1.2,
           backgroundColor: '#fff',
+          preserveObjectStacking: true,
         });
 
         // Establecer Canvas en alta resoucion
@@ -38,10 +40,41 @@ function CanvasEditor({DesignInfo}) {
       }
   },[DesignInfo]);
 
+  /**
+   * Eliminar objetos del Canvas
+   */
+
+  useEffect(()=>{
+    const handleKeyDown=(event) => {
+      if(event.key=='Delete' || event.key=='Backspace'){
+        if(canvasEditor)
+        {
+          const activeObject=canvasEditor.getActiveObject();
+          if(activeObject){
+            canvasEditor.remove(activeObject);
+            canvasEditor.renderAll();
+          }
+        }
+      }
+    }
+    
+    document.addEventListener('keydown',handleKeyDown);
+
+    return ()=>{
+      document.removeEventListener('keydown',handleKeyDown);
+    }
+
+  },[canvasEditor]);
+
   return (
-    <div className='w-full h-screen bg-secondary flex items-center justify-center
-    flex-col relative'>
-      <canvas id='canvas' ref={canvasRef}/>
+
+    <div className='bg-secondary w-full h-screen mt-10'>
+      <TopNavBar />
+      <div className='flex items-center justify-center
+        flex-col relative h-full'>
+        
+        <canvas id='canvas' ref={canvasRef}/>
+      </div>
     </div>
   )
 }

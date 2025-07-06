@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import ImageKit from "imagekit";
 import { useParams } from 'next/navigation';
 import { Spinner } from '@/components/ui/spinner';
@@ -31,10 +31,7 @@ function UploadImage() {
         const canvasImageRef=await FabricImage.fromURL(
             imageRef?.url
         );
-        canvasImageRef.set({
-            width: 200,
-            height: 200,
-        })
+       
         canvasEditor.add(canvasImageRef);
         canvasEditor.renderAll();
 
