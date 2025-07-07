@@ -12,7 +12,9 @@ function ShapeSettings() {
                         <PopoverTrigger asChild>
                             <shape.icon className='w-6 h-6' />
                         </PopoverTrigger>
-                        <PopoverContent>Place content for the popover here.</PopoverContent>
+                        <PopoverContent>
+                            {shape.component}
+                        </PopoverContent>
                     </Popover>
                 </div>
             ))}

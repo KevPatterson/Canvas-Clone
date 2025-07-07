@@ -2,6 +2,8 @@ import {  LayoutTemplate, TemplatesList, Palette, Square, Minus, Blend, ArrowUp,
 import BackgroundSetting from "./Components/BackgroundSetting";
 import AddImageSetting from "./Components/AddImageSetting";
 import Elements from "./Components/Elements";
+import FillColor from "./Sharable/FillColor";
+import BorderColor from "./Sharable/BorderColor";
 
 export const WorkspaceMenu = [
     {
@@ -163,12 +165,12 @@ export const shapesSettingsList = [
     {
         name: 'Fill',
         icon: Palette,
-        //component: <FillColor />
+        component: <FillColor />
     },
     {
         name: 'Stroke Color',
         icon: Square,
-        //component: <BorderColor />
+        component: <BorderColor />
     },
     {
         name: 'Stroke Width',
