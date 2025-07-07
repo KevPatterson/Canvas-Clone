@@ -1,32 +1,32 @@
-import React, { useState } from 'react'
-import ColorPickerEditor from './ColorPickerEditor'
 import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
+import { Slider } from '@/components/ui/slider';
+import React from 'react'
 
-function BorderColor() {
-    const [color, setColor] = useState('#000')
+function BordeRadius() {
     const {canvasEditor} = useCanvasHook();
 
-    const onColorChange = (color) => {
-        setColor(color)
+    const onRadiusChange = (value) => {
         const activeObject = canvasEditor.getActiveObject();
         
         // Verificar si hay un objeto activo antes de modificarlo
         if (activeObject) {
             activeObject.set({
-                stroke: color
+                rx: value,
+                ry: value
             })
-            //canvasEditor.add(activeObject);
+
             canvasEditor.renderAll();
         }
     }
 
     return (
         <div>
-            <ColorPickerEditor onColorChange={(v) => onColorChange(v)}
-                value={color}
+            <h2 className='text-sm font-medium'>Border Radius</h2>
+            <Slider defaultValue={[0]} max={100} step={1}
+                onValueChange={(v) => onRadiusChange(v[0])}
             />
         </div>
     )
 }
 
-export default BorderColor
+export default BordeRadius

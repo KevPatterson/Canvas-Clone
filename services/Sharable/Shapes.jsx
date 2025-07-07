@@ -9,6 +9,12 @@ function Shapes() {
     const{canvasEditor}=useCanvasHook();
 
     const onShapeSelect=(shape) => {
+        // Verificar si canvasEditor está disponible
+        if (!canvasEditor) {
+            console.warn('Canvas editor not initialized yet');
+            return;
+        }
+
         const properties={
             left: 100,
             top: 100,

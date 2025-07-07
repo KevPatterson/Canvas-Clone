@@ -4,6 +4,9 @@ import AddImageSetting from "./Components/AddImageSetting";
 import Elements from "./Components/Elements";
 import FillColor from "./Sharable/FillColor";
 import BorderColor from "./Sharable/BorderColor";
+import BorderWidth from "./Sharable/BorderWidth";
+import Opacity from "./Sharable/Opacity"
+import BorderRadius from "./Sharable/BordeRadius"
 
 export const WorkspaceMenu = [
     {
@@ -175,17 +178,17 @@ export const shapesSettingsList = [
     {
         name: 'Stroke Width',
         icon: Minus,
-        //component: <BorderWidth />
+        component: <BorderWidth />
     },
     {
         name: 'Opacity',
         icon: Blend,
-        //component: <Opacity />
+        component: <Opacity />
     },
     {
         name: 'Rounded Corner',
         icon: SquareRoundCorner,
-        //component: <BorderRadius />
+        component: <BorderRadius />
     },
     {
         name: 'Bring Front',
@@ -197,10 +200,10 @@ export const shapesSettingsList = [
         icon: ArrowDown,
         //component: <MoveBackword />
     },
-    // {
+    //{
     //     name: 'Delete',
     //     icon: Trash
-    // }
+    //}
 ]
 /*
 export const AITransformationSettings = [
