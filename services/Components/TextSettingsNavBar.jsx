@@ -3,7 +3,7 @@ import { TextSettingsList } from '../Options'
 import { Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
 import { Trash } from 'lucide-react';
-import {FontStyles} from '../Sharable/FontStyles' 
+import FontStyles from '../Sharable/FontStyles' 
 
 function TextSettingsNavBar() {
 

@@ -11,30 +11,36 @@ function FontStyles() {
         if (activeObject) {
             if (type == 'bold') {
                 activeObject.set({
-                    fontWeight: 'bold'
+                    fontWeight: activeObject?.fontWeight === 'bold' ? 'normal' : 'bold'
                 })
             } else if (type == 'italic') {
                 activeObject.set({
-                    fontStyle: 'italic'
+                    fontStyle: activeObject?.fontStyle === 'italic' ? 'normal' : 'italic'
                 })
             } else if (type == 'underline') {
                 activeObject.set({
-                    underline: true
+                    underline: activeObject?.underline ? false : true
                 })
             }
-            canvasEditor.renderAll();
+            canvasEditor.add(activeObject);
         }
     }
 
     return (
         <div>
-            <Toggle aria-label="Toggle italic">
+            <Toggle aria-label="Toggle bold" 
+                defaultPressed={activeObject?.fontWeight === 'bold'}
+                onClick={()=>onSettingClick('bold')}>
                 <Bold className="h-4 w-4" size={'lg'} />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle aria-label="Toggle italic" 
+                defaultPressed={activeObject?.fontStyle === 'italic'}
+                onClick={()=>onSettingClick('italic')}>
                 <Italic className="h-4 w-4" size={'lg'} />
             </Toggle>
-            <Toggle aria-label="Toggle italic">
+            <Toggle aria-label="Toggle underline" 
+                defaultPressed={activeObject?.underline}
+                onClick={()=>onSettingClick('underline')}>
                 <Underline className="h-4 w-4" size={'lg'} />
             </Toggle>
         </div>
