@@ -1,5 +1,5 @@
 import { ImageUp } from 'lucide-react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -9,9 +9,9 @@ import { Loader } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import { useCanvasHook } from '@/app/(routes)/design/[designId]/page'
 
-function CustomImageUpload() {
+function CustomImageUpload({selectedAi}) {
 
-    const [image, setImage] = useState();
+    const [image, setImage] = useState('https://ik.imagekit.io/tubeguruji/j978bsz2r4nse59v7f7rdkdxw17cy63z_QkF9hAkaH.png');
     const [loading, setLoading] = useState(false);
     const {designId}=useParams();
     const {canvasEditor}=useCanvasHook();
@@ -43,7 +43,22 @@ function CustomImageUpload() {
         );
        
         canvasEditor.add(canvasImageRef);
+        setImage(null);
     }
+
+    useEffect(() => {
+        if(selectedAi){
+            let imageUrl = image;
+           if(image?.includes('?tr=')){
+            imageUrl = imageUrl + ',' + selectedAi.command;
+           }
+           else {
+            imageUrl = imageUrl + '?tr=' + selectedAi.command;
+           }
+           console.log(imageUrl);
+           setImage(imageUrl);
+        }
+    }, [selectedAi]);
    
     return (
         <div>
