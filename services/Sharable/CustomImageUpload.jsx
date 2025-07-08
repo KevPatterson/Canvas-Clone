@@ -7,7 +7,7 @@ import ImageKit from "imagekit";
 import { FabricImage } from 'fabric';
 import { Loader } from 'lucide-react';
 import { useParams } from 'next/navigation';
-import { useCanvasHook } from '@/app/(routes)/design/[designId]/page'
+import { useCanvasHook } from '@/context/CanvasContext'
 
 function CustomImageUpload({selectedAi}) {
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { ShapeList } from '../Options'
 import Image from 'next/image'
 import { Circle, Line, Rect, Triangle } from 'fabric'
-import { useCanvasHook } from '@/app/(routes)/design/[designId]/page'
+import { useCanvasHook } from '@/context/CanvasContext'
 
 function Shapes() {
 

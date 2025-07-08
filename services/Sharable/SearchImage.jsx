@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Input } from '@/components/ui/input';
 import { SearchIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '@/context/CanvasContext';
 import { FabricImage } from 'fabric';
 
 function SearchImage() {

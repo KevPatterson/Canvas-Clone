@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'next/navigation'
 import DesignHeader from '../_components/DesignHeader'
 import { useQuery } from 'convex/react'
@@ -30,11 +30,3 @@ function DesignEditor() {
 }
 
 export default DesignEditor
-
-export const useCanvasHook=()=>{
-    const context = useContext(CanvasContext);
-    if(!context){
-        throw new Error('Error');
-    }
-    return context;
-}

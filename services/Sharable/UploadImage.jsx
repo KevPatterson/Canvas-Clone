@@ -3,7 +3,7 @@ import ImageKit from "imagekit";
 import { useParams } from 'next/navigation';
 import { Spinner } from '@/components/ui/spinner';
 import { FabricImage } from 'fabric';
-import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '@/context/CanvasContext';
 import { Loader2Icon } from 'lucide-react';
 
 function UploadImage() {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Canvas } from 'fabric'
-import { useCanvasHook } from '../[designId]/page'
+import { useCanvasHook } from '@/context/CanvasContext'
 import TopNavBar from '@/services/Components/TopNavBar'
 
 function CanvasEditor({DesignInfo}) {

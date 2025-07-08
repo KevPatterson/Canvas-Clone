@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { shapesSettingsList } from '../Options'
 import { Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
 import { Trash } from 'lucide-react'
-import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '@/context/CanvasContext';
 
 function ShapeSettings() {
 
