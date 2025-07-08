@@ -46,7 +46,7 @@ function CanvasEditor({DesignInfo}) {
 
   useEffect(()=>{
     const handleKeyDown=(event) => {
-      if(event.key=='Delete' || event.key=='Backspace'){
+      if(event.key=='Delete' ){
         if(canvasEditor)
         {
           const activeObject=canvasEditor.getActiveObject();

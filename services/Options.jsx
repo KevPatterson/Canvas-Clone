@@ -8,6 +8,7 @@ import BorderWidth from "./Sharable/BorderWidth";
 import Opacity from "./Sharable/Opacity"
 import BorderRadius from "./Sharable/BordeRadius"
 import AiTransformSetting from "./Components/AiTransformSetting";
+import TextSettings from "./Components/TextSettings";
 
 export const WorkspaceMenu = [
     {
@@ -261,7 +262,6 @@ export const AITransformationSettings = [
     }
 ]
 
-/*
 export const TextSettingsList = [
     {
         name: 'Fill',
@@ -283,23 +283,23 @@ export const TextSettingsList = [
         icon: Blend,
         component: <Opacity />
     },
-    {
-        name: 'Font',
-        icon: BookType,
-        component: <FontFamily />
-    },
-    {
-        name: 'Bring Front',
-        icon: ArrowUp,
-        component: <MoveForward />
-    },
-    {
-        name: 'Move Back',
-        icon: ArrowDown,
-        component: <MoveBackword />
-    },
+    // {
+    //     name: 'Font',
+    //     icon: BookType,
+    //     component: <FontFamily />
+    // },
+    // {
+    //     name: 'Bring Front',
+    //     icon: ArrowUp,
+    //     component: <MoveForward />
+    // },
+    // {
+    //     name: 'Move Back',
+    //     icon: ArrowDown,
+    //     component: <MoveBackword />
+    // },
 ]
-
+/*
 export const FontFamilyList = [
     "Arial",
     "Arial Black",

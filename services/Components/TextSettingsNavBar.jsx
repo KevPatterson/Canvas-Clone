@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { shapesSettingsList } from '../Options'
+import { TextSettingsList } from '../Options'
 import { Popover, PopoverContent, PopoverTrigger,} from "@/components/ui/popover"
-import { Trash } from 'lucide-react'
 import { useCanvasHook } from '@/app/(routes)/design/[designId]/page';
+import { Trash } from 'lucide-react';
 
-function ShapeSettings() {
+function TextSettingsNavBar() {
 
     const {canvasEditor} = useCanvasHook();
     const [show, setShow] = useState(false);
@@ -15,10 +15,10 @@ function ShapeSettings() {
             canvasEditor.remove(activeObject);
         }
     }
-
+    
     return (
         <div className='flex gap-6'>
-            {shapesSettingsList.map((shape, index) => (
+            {TextSettingsList.map((shape, index) => (
                 <div key={index} className='hover:scale-105 transition-all rounded-xl cursor-pointer'>
 
                     <Popover>
@@ -36,4 +36,4 @@ function ShapeSettings() {
     )
 }
 
-export default ShapeSettings
+export default TextSettingsNavBar
