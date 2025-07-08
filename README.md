@@ -20,6 +20,19 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Features
+
+### Stickers Integration
+The application now includes a stickers feature that integrates with the Freepik API to provide users with a wide variety of stickers and icons. Users can:
+
+- Search for stickers using keywords
+- Browse through sticker categories
+- Add stickers directly to the canvas
+- Resize and position stickers on the design
+- Use fallback stickers when the API is unavailable
+
+The stickers feature is accessible through the Elements section with a dedicated "Stickers" tab alongside the existing "Formas" (Shapes) tab.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
