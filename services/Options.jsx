@@ -1,4 +1,4 @@
-import {  LayoutTemplate, TemplatesList, Palette, Square, Minus, Blend, ArrowUp, ArrowDown, SquareRoundCorner, ShapesIcon, Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon, Type, Sparkle, Component, Settings } from "lucide-react";
+import {  LayoutTemplate, TemplatesList, Palette, Square, Minus, BookType, Blend, ArrowUp, ArrowDown, SquareRoundCorner, ShapesIcon, Folder, Home, Image, LayoutDashboardIcon, WalletCardsIcon, Type, Sparkle, Component, Settings } from "lucide-react";
 import BackgroundSetting from "./Components/BackgroundSetting";
 import AddImageSetting from "./Components/AddImageSetting";
 import Elements from "./Components/Elements";
@@ -9,6 +9,7 @@ import Opacity from "./Sharable/Opacity"
 import BorderRadius from "./Sharable/BordeRadius"
 import AiTransformSetting from "./Components/AiTransformSetting";
 import TextSettings from "./Components/TextSettings";
+import FontFamily from "./Sharable/FontFamily";
 
 export const WorkspaceMenu = [
     {
@@ -283,11 +284,11 @@ export const TextSettingsList = [
         icon: Blend,
         component: <Opacity />
     },
-    // {
-    //     name: 'Font',
-    //     icon: BookType,
-    //     component: <FontFamily />
-    // },
+    {
+        name: 'Font',
+        icon: BookType,
+        component: <FontFamily />
+    },
     // {
     //     name: 'Bring Front',
     //     icon: ArrowUp,
@@ -299,7 +300,7 @@ export const TextSettingsList = [
     //     component: <MoveBackword />
     // },
 ]
-/*
+
 export const FontFamilyList = [
     "Arial",
     "Arial Black",
@@ -321,7 +322,7 @@ export const FontFamilyList = [
     "Lucida Console",
 ]
 
-
+/*
 export const StickerList = [
     'https://cdn-icons-png.flaticon.com/256/428/428094.png',
     'https://cdn-icons-png.flaticon.com/256/2111/2111463.png',
