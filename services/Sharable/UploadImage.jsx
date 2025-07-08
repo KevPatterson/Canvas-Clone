@@ -23,7 +23,7 @@ function UploadImage() {
         const file = event.target.files[0];
         const imageRef = await imagekit.upload({
             file: file,
-            fileName: designId+".png",
+            fileName: designId + ".png",
             isPublished: true
         });
         console.log(imageRef?.url);
@@ -33,7 +33,7 @@ function UploadImage() {
         );
        
         canvasEditor.add(canvasImageRef);
-        canvasEditor.renderAll();
+        // canvasEditor.renderAll();
 
         setLoading(false);
     }

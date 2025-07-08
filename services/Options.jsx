@@ -7,6 +7,7 @@ import BorderColor from "./Sharable/BorderColor";
 import BorderWidth from "./Sharable/BorderWidth";
 import Opacity from "./Sharable/Opacity"
 import BorderRadius from "./Sharable/BordeRadius"
+import AiTransformSetting from "./Components/AiTransformSetting";
 
 export const WorkspaceMenu = [
     {
@@ -130,7 +131,7 @@ export const sideBarMenu = [
         name: 'AI',
         desc: 'Mas caracteristicas de IA para mejorar tu diseño',
         icon: Sparkle,
-        //component: <AiTransformSetting />
+        component: <AiTransformSetting />
     },
     {
         name: 'Background',
@@ -205,7 +206,7 @@ export const shapesSettingsList = [
     //     icon: Trash
     //}
 ]
-/*
+
 export const AITransformationSettings = [
     {
         name: 'Background Remove',
@@ -260,7 +261,7 @@ export const AITransformationSettings = [
     }
 ]
 
-
+/*
 export const TextSettingsList = [
     {
         name: 'Fill',
