@@ -49,14 +49,14 @@ function CustomImageUpload({selectedAi}) {
     useEffect(() => {
         if(selectedAi){
             let imageUrl = image;
-           if(image?.includes('?tr=')){
-            imageUrl = imageUrl + ',' + selectedAi.command;
-           }
-           else {
-            imageUrl = imageUrl + '?tr=' + selectedAi.command;
-           }
-           console.log(imageUrl);
-           setImage(imageUrl);
+            if(image?.includes('?tr=')){
+                imageUrl = imageUrl + ',' + selectedAi.command;
+            }
+            else {
+                imageUrl = imageUrl + "?tr=" + selectedAi.command;
+            }
+            console.log(imageUrl);
+            setImage(imageUrl);
         }
     }, [selectedAi]);
    
@@ -72,14 +72,14 @@ function CustomImageUpload({selectedAi}) {
                     className='w-full h-[150px] object-cover rounded-lg'/>
                 </label>
             }
-            <input type='file' id='uploadImage' className='hidden' 
+            <input type='file' id='uploadImage' className='hidden cursor-pointer' 
             onChange={onImageUpload}
             />
 
             {image && <Button className='w-full my-2' 
                 onClick = {onAddToCanvas} size='sm'
                 disabled = {loading}>
-                {loading && <Loader className='animate-spin' /> }Agregar al Canvas
+                {loading && <Loader className='animate-spin cursor-pointer' /> }Agregar al Canvas
             </Button>}
         </div>
     )

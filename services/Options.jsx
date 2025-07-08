@@ -125,7 +125,7 @@ export const sideBarMenu = [
         name: 'Text',
         desc: 'Agregar texto y encabezado',
         icon: Type,
-        //component: <TextSettings />
+        component: <TextSettings />
     },
     {
         name: 'AI',

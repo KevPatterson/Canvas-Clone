@@ -18,7 +18,7 @@ function AiTransformSetting() {
                         width={500} height={500} 
                         className='w-full h-[70px] object-cover rounded-xl'
                        />
-                       <h2 className='text-xs text-center'>{option.name}Cargar Imagen</h2>
+                       <h2 className='text-xs text-center cursor-pointer'>{option.name}</h2>
                     </div>
                 ))}
             </div>
