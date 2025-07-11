@@ -14,9 +14,6 @@ function Stickers() {
     const [searchTerm, setSearchTerm] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
 
-    const FREEPIK_API_KEY = process.env.NEXT_PUBLIC_FREEPIK_API_KEY || 'FPSX9ed009e4085704ad16575019cb3a167f'
-    const FREEPIK_API_URL = process.env.NEXT_PUBLIC_FREEPIK_API_URL || 'https://api.freepik.com/v1/resources/search'
-    
     // Fallback stickers in case API fails
     const fallbackStickers = [
         {
@@ -60,18 +57,17 @@ function Stickers() {
     const fetchStickers = async (query = 'sticker', page = 1) => {
         setLoading(true)
         try {
-            const response = await fetch(`${FREEPIK_API_URL}?q=${encodeURIComponent(query)}&type=vector&page=${page}&limit=20`, {
+            const response = await fetch(`/api/stickers?q=${encodeURIComponent(query)}&page=${page}`, {
                 headers: {
-                    'X-Freepik-API-Key': FREEPIK_API_KEY,
                     'Accept': 'application/json'
                 }
             })
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`)
-            }
+            console.log('Stickers API response status:', response.status)
 
+            // Always try to parse the response, even if status is not 200
             const data = await response.json()
+            console.log('Stickers API response data:', data)
             
             if (data.data && data.data.length > 0) {
                 const stickerData = data.data.map(item => ({
@@ -82,12 +78,14 @@ function Stickers() {
                 })).filter(sticker => sticker.url) // Filter out items without URLs
                 setStickers(stickerData)
             } else {
-                setStickers([])
+                console.log('No stickers found in API response, using fallback')
+                setStickers(fallbackStickers)
             }
         } catch (error) {
             console.error('Error fetching stickers:', error)
             // Use fallback stickers if API fails
             setStickers(fallbackStickers)
+            // You can also show a toast notification here if you have a toast system
         } finally {
             setLoading(false)
         }
@@ -124,6 +122,10 @@ function Stickers() {
                 selectable: true,
                 hasControls: true,
                 hasBorders: true
+            })
+
+            img.set({
+                crossOrigin: 'anonymous'
             })
 
             canvasEditor.add(img)

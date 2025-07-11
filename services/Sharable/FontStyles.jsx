@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Toggle } from "@/components/ui/toggle"
 import { Bold, Italic, Underline } from "lucide-react"
 import { useCanvasHook } from '@/context/CanvasContext';
@@ -6,23 +6,49 @@ import { useCanvasHook } from '@/context/CanvasContext';
 function FontStyles() {
     
     const {canvasEditor} = useCanvasHook();
+    const [activeObject, setActiveObject] = useState(null);
+
+    useEffect(() => {
+        if (canvasEditor) {
+            const updateActiveObject = () => {
+                const obj = canvasEditor.getActiveObject();
+                setActiveObject(obj);
+            };
+
+            // Update active object when selection changes
+            canvasEditor.on('selection:created', updateActiveObject);
+            canvasEditor.on('selection:updated', updateActiveObject);
+            canvasEditor.on('selection:cleared', () => setActiveObject(null));
+
+            // Initial check
+            updateActiveObject();
+
+            return () => {
+                canvasEditor.off('selection:created', updateActiveObject);
+                canvasEditor.off('selection:updated', updateActiveObject);
+                canvasEditor.off('selection:cleared', updateActiveObject);
+            };
+        }
+    }, [canvasEditor]);
+
     const onSettingClick=(type)=>{
-        const activeObject = canvasEditor.getActiveObject();
-        if (activeObject) {
+        const currentActiveObject = canvasEditor.getActiveObject();
+        if (currentActiveObject) {
             if (type == 'bold') {
-                activeObject.set({
-                    fontWeight: activeObject?.fontWeight === 'bold' ? 'normal' : 'bold'
+                currentActiveObject.set({
+                    fontWeight: currentActiveObject?.fontWeight === 'bold' ? 'normal' : 'bold'
                 })
             } else if (type == 'italic') {
-                activeObject.set({
-                    fontStyle: activeObject?.fontStyle === 'italic' ? 'normal' : 'italic'
+                currentActiveObject.set({
+                    fontStyle: currentActiveObject?.fontStyle === 'italic' ? 'normal' : 'italic'
                 })
             } else if (type == 'underline') {
-                activeObject.set({
-                    underline: activeObject?.underline ? false : true
+                currentActiveObject.set({
+                    underline: currentActiveObject?.underline ? false : true
                 })
             }
-            canvasEditor.add(activeObject);
+            canvasEditor.add(currentActiveObject);
+            canvasEditor.renderAll();
         }
     }
 

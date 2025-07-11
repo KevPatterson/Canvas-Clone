@@ -27,8 +27,14 @@ function CanvasEditor({DesignInfo}) {
         initCanvas.set({
           width: DesignInfo?.width * scaleFactor,
           height: DesignInfo?.height * scaleFactor,
-          zoom: 1,
+          zoom: 1 / scaleFactor,
         });
+
+        if (DesignInfo?.jsonTemplate) {
+          initCanvas.loadFromJSON(DesignInfo?.jsonTemplate, () => {
+            initCanvas?.requestRenderAll();
+            });
+        }
 
         initCanvas.renderAll();
         setCanvas(initCanvas);

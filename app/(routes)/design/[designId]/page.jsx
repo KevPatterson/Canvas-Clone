@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import DesignHeader from '../_components/DesignHeader'
 import { useQuery } from 'convex/react'
@@ -12,14 +12,21 @@ function DesignEditor() {
     
     const {designId} = useParams();
     const [canvasEditor,setCanvasEditor]=useState();
-    const DesignInfo = useQuery(api.designs.GetDesignRecord, {
+    const DesignInfoFromConvex = useQuery(api.designs.GetDesignRecord, {
         id:designId,
     }); 
+    const [DesignInfo, setDesignInfo] = useState(null);
+
+    useEffect(() => {
+        if (DesignInfoFromConvex) {
+            setDesignInfo(DesignInfoFromConvex);
+        }
+    }, [DesignInfoFromConvex]);
 
     return (
         <div>
             <CanvasContext.Provider value={{canvasEditor,setCanvasEditor}}>
-                <DesignHeader DesignInfo={DesignInfo} />
+                <DesignHeader DesignInfo={DesignInfo} setDesignInfo={setDesignInfo} />
                 <div className='flex'>
                     <Sidebar />
                     <CanvasEditor DesignInfo={DesignInfo} />
